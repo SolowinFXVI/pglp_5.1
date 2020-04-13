@@ -1,6 +1,8 @@
 package org.uvsq21400579;
 
-public class Node<T> {
+import java.io.Serializable;
+
+public class Node<T> implements Serializable {
 
   private Node<T> prev = null;
   private Node<T> next = null;
@@ -10,7 +12,7 @@ public class Node<T> {
     this.element = element;
   }
 
-  public void addElement(T next) {
+  public void addElement(T next){
 
     if (this.next == null) {
       this.next = new Node<T>(next);

@@ -1,9 +1,10 @@
 package org.uvsq21400579;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-public final class Personnel extends Team {
+public final class Personnel extends Team implements Serializable {
   private final String name;
   private final String surname;
   private final String function;
@@ -19,7 +20,7 @@ public final class Personnel extends Team {
 
     public Builder(String name, String surname, String function) {
       this.name = name;
-      this.surname = function;
+      this.surname = surname;
       this.function = function;
     }
 

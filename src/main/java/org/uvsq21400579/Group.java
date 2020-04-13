@@ -1,8 +1,9 @@
 package org.uvsq21400579;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
-public class Group extends Team implements Iterable<Team>{
+public class Group extends Team implements Iterable<Team>, Serializable {
 
   private final String nom;
   private final TeamIterator<Team> head;

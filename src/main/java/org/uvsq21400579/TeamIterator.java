@@ -1,31 +1,30 @@
 package org.uvsq21400579;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
-public class TeamIterator<Team> implements Iterator<Team> {
+public class TeamIterator<Team> implements Iterator<Team>, Serializable {
 
-  private int index;
-  private Node<Team> e;
+  private Node<Team> nodes;
 
   @Override
   public boolean hasNext() {
-    return e != null;
+    return nodes != null;
   }
 
   @Override
   public Team next() {
-    Team tmp = e.getElement();
-    e = e.getNext();
-    index ++;
+    Team tmp = nodes.getElement();
+    nodes = nodes.getNext();
     return tmp;
   }
 
   public void add(Team n) {
-    if(e == null) {
-      this.e = new Node<Team>(n);
+    if(nodes == null) {
+      this.nodes = new Node<Team>(n);
     }
     else {
-      this.e.addElement(n);
+      this.nodes.addElement(n);
     }
   }
 
