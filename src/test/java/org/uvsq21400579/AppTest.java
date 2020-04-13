@@ -164,7 +164,6 @@ public class AppTest {
         } catch (IOException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
-        //TODO assert
     }
 
     @Test
