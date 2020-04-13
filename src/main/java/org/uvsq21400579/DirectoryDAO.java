@@ -1,11 +1,9 @@
 package org.uvsq21400579;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -15,7 +13,9 @@ public class DirectoryDAO implements DAO<Directory> {
 
   @Override
   public Directory create(Directory directory) {
-    try(ObjectOutputStream outputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("directory")))){
+    try (ObjectOutputStream outputStream = new ObjectOutputStream(
+        new BufferedOutputStream(
+            new FileOutputStream("directory")))) {
       outputStream.writeObject(directory);
     } catch (IOException exception) {
       exception.printStackTrace();
@@ -40,8 +40,7 @@ public class DirectoryDAO implements DAO<Directory> {
     try {
       File file = new File(path);
       file.delete();
-    }
-    catch (Exception exception){
+    } catch (Exception exception) {
       exception.printStackTrace();
     }
   }

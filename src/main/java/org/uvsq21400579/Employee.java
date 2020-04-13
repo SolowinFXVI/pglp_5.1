@@ -18,6 +18,12 @@ public final class Employee extends Team implements Serializable {
     private  List<String> phone = null;
     private  java.time.LocalDate birthDate = java.time.LocalDate.now();
 
+    /**
+     * Builder for Employee.
+     * @param name Name of employee.
+     * @param surname Surname of employee.
+     * @param function Function of employee.
+     */
     public Builder(String name, String surname, String function) {
       this.name = name;
       this.surname = surname;
@@ -52,11 +58,11 @@ public final class Employee extends Team implements Serializable {
     return this.name;
   }
 
-  public List<String> getPhone(){
+  public List<String> getPhone() {
     return Collections.unmodifiableList(this.phone);
   }
 
-  public java.time.LocalDate getLocalDate(){
+  public java.time.LocalDate getLocalDate() {
     return this.birthDate;
   }
 

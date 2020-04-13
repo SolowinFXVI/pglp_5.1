@@ -9,11 +9,12 @@ public class Directory implements Iterable<Team>, Serializable {
   private final TeamIterator<Team> head;
 
   private Directory() {
-    head = new TeamIterator<Team>();
+    head = new TeamIterator<>();
   }
 
   /**
-   * @return instance of Directory
+   * Instance of Directory.
+   * @return Directory
    */
   public static Directory getInstance() {
     if (Directory == null) {

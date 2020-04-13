@@ -8,25 +8,25 @@ public class Group extends Team implements Iterable<Team>, Serializable {
   private final String nom;
   private final TeamIterator<Team> head;
 
-  public Group(String nom) {
-
-    this.nom = nom;
-    this.head = new TeamIterator<Team>();
+  /**
+   * Group Constructor.
+   * @param name Name of Group.
+   */
+  public Group(String name) {
+    this.nom = name;
+    this.head = new TeamIterator<>();
   }
 
   public void addMember(Team e) {
-
     this.head.add(e);
-
   }
 
-  public String getName() {
-    return this.nom;
-  }
-
+  /**
+   * Prints the name of the Group.
+   */
   public void printName() {
     System.out.println(this.nom);
-    for(Team e : this) {
+    for (Team e : this) {
       e.printName();
     }
   }
@@ -35,6 +35,5 @@ public class Group extends Team implements Iterable<Team>, Serializable {
   public Iterator<Team> iterator() {
     return this.head;
   }
-
 
 }

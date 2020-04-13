@@ -19,12 +19,15 @@ public class TeamIterator<Team> implements Iterator<Team>, Serializable {
     return tmp;
   }
 
-  public void add(Team n) {
-    if(nodes == null) {
-      this.nodes = new Node<Team>(n);
-    }
-    else {
-      this.nodes.addElement(n);
+  /**
+   * Add Team.
+   * @param team Team.
+   */
+  public void add(Team team) {
+    if (nodes == null) {
+      this.nodes = new Node<>(team);
+    } else {
+      this.nodes.addElement(team);
     }
   }
 

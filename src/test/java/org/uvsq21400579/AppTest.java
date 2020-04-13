@@ -11,14 +11,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import org.junit.After;
 import org.junit.Test;
-import sun.java2d.loops.GraphicsPrimitiveMgr;
 
-public class AppTest
-{
+public class AppTest {
     @Test
     public void testEmployee() {
         Employee employee = new Employee.Builder("Dylan", "Bob", "Singer").build();
@@ -172,11 +168,11 @@ public class AppTest
     }
 
     @Test
-    public void DirectoryDAOTest(){
+    public void DirectoryDAOTest() {
         List<String> tmp = new ArrayList<>();
         Employee employee = new Employee.Builder("Dylan", "Bob", "Singer").updatePhoneList(tmp).build();
         Employee employee2 = new Employee.Builder("Hendrix", "Jimmy", "GuitarHero").updatePhoneList(tmp).build();
-        DAO dao = DAOFactory.getDirectoryDAO();
+        DAO<Directory> dao = DAOFactory.getDirectoryDAO();
         Directory directory = Directory.getInstance();
         String phone = "0324657321";
         tmp.add(phone);
@@ -194,10 +190,10 @@ public class AppTest
     }
 
     @Test
-    public void EmployeeDAOTest(){
+    public void EmployeeDAOTest() {
         List<String> tmp = new ArrayList<>();
         Employee employee = new Employee.Builder("Dylan", "Bob", "Singer").updatePhoneList(tmp).build();
-        DAO dao = DAOFactory.getEmployeeDAO();
+        DAO<Employee> dao = DAOFactory.getEmployeeDAO();
         String phone = "0324657321";
         tmp.add(phone);
         tmp.add("312576865");
@@ -211,7 +207,7 @@ public class AppTest
         List<String> tmp = new ArrayList<>();
         Employee employee = new Employee.Builder("Dylan", "Bob", "Singer").updatePhoneList(tmp).build();
         Employee employee2 = new Employee.Builder("Hendrix", "Jimmy", "GuitarHero").updatePhoneList(tmp).build();
-        DAO dao = DAOFactory.getGroupDAO();
+        DAO<Group> dao = DAOFactory.getGroupDAO();
         String phone = "0324657321";
         tmp.add(phone);
         tmp.add("312576865");
@@ -222,6 +218,5 @@ public class AppTest
         Group test = (Group) dao.find("group");
         dao.delete("group");
     }
-
 
 }

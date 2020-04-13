@@ -4,34 +4,27 @@ import java.io.Serializable;
 
 public class Node<T> implements Serializable {
 
-  private Node<T> prev = null;
   private Node<T> next = null;
-  private T element;
+  private final T element;
 
-  public Node(T element){
+  public Node(T element) {
     this.element = element;
   }
 
-  public void addElement(T next){
-
+  /**
+   * Add Element to Node.
+   * @param next Next node.
+   */
+  public void addElement(T next) {
     if (this.next == null) {
-      this.next = new Node<T>(next);
-      this.next.prev = this;
-    }
-    else
+      this.next = new Node<>(next);
+    } else {
       this.next.addElement(next);
+    }
   }
 
   public T getElement() {
     return this.element;
-  }
-
-  public void remove() {
-    this.prev.next = this.next;
-    this.next.prev = this.prev;
-    this.element = null;
-    this.next = null;
-    this.prev = null;
   }
 
   public boolean hasNext() {
@@ -40,9 +33,5 @@ public class Node<T> implements Serializable {
 
   public Node<T> getNext() {
     return this.next;
-  }
-
-  public Node<T> getPrevious() {
-    return this.prev;
   }
 }

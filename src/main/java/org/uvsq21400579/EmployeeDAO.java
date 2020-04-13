@@ -13,7 +13,8 @@ public class EmployeeDAO implements DAO<Employee> {
 
   @Override
   public Employee create(Employee object) {
-    try(ObjectOutputStream outputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("employee")))){
+    try (ObjectOutputStream outputStream = new ObjectOutputStream(new BufferedOutputStream(
+        new FileOutputStream("employee")))) {
       outputStream.writeObject(object);
     } catch (IOException exception) {
       exception.printStackTrace();
@@ -38,8 +39,7 @@ public class EmployeeDAO implements DAO<Employee> {
     try {
       File file = new File(path);
       file.delete();
-    }
-    catch (Exception exception){
+    } catch (Exception exception) {
       exception.printStackTrace();
     }
   }

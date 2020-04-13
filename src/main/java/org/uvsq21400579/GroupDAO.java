@@ -9,11 +9,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class GroupDAO implements DAO<Group>{
+public class GroupDAO implements DAO<Group> {
 
   @Override
   public Group create(Group object) {
-    try(ObjectOutputStream outputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("group")))){
+    try (ObjectOutputStream outputStream = new ObjectOutputStream(
+        new BufferedOutputStream(
+            new FileOutputStream("group")))) {
       outputStream.writeObject(object);
     } catch (IOException exception) {
       exception.printStackTrace();
@@ -38,8 +40,7 @@ public class GroupDAO implements DAO<Group>{
     try {
       File file = new File(path);
       file.delete();
-    }
-    catch (Exception exception){
+    } catch (Exception exception) {
       exception.printStackTrace();
     }
   }
