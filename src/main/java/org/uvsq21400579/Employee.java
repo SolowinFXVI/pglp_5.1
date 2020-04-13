@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-public final class Personnel extends Team implements Serializable {
+public final class Employee extends Team implements Serializable {
   private final String name;
   private final String surname;
   private final String function;
@@ -34,13 +34,13 @@ public final class Personnel extends Team implements Serializable {
       return this;
     }
 
-    public Personnel build() {
-      return new Personnel(this);
+    public Employee build() {
+      return new Employee(this);
     }
 
   }
 
-  private Personnel(Builder build) {
+  private Employee(Builder build) {
     this.name = build.name;
     this.surname = build.surname;
     this.function = build.function;

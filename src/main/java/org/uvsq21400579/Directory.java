@@ -3,20 +3,23 @@ package org.uvsq21400579;
 import java.io.Serializable;
 import java.util.Iterator;
 
-public class Annuaire implements Iterable<Team>, Serializable {
+public class Directory implements Iterable<Team>, Serializable {
 
-  private static Annuaire ANNUAIRE;
+  private static Directory Directory;
   private final TeamIterator<Team> head;
 
-  private Annuaire() {
+  private Directory() {
     head = new TeamIterator<Team>();
   }
 
-  public static Annuaire getInstance() {
-    if (ANNUAIRE == null) {
-      ANNUAIRE = new Annuaire();
+  /**
+   * @return instance of Directory
+   */
+  public static Directory getInstance() {
+    if (Directory == null) {
+      Directory = new Directory();
     }
-    return ANNUAIRE;
+    return Directory;
   }
 
   @Override
